@@ -1,0 +1,125 @@
+:root {
+    --white: #f0f0f0;
+    --black: #1f1f1f;
+    --dark-purple: #241023;
+    --brown: #a3320b;
+    --mindaro: #d5e68d;
+    --pigment-green: #47a025;
+    --smooth1: .3s;
+}
+* {
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "Emilys_Candy";
+    src: url(/Emilys_Candy/EmilysCandy-Regular.ttf);
+}
+body {
+    background-color: var(--dark-purple);
+    font-family: "Emilys_Candy", Tahoma;
+    color: var(--white);
+}
+
+.container {
+    min-height: 100vh;
+    padding: 10px;
+
+    & h1 {
+        margin: 0;
+        text-align: center;
+        color: var(--mindaro);
+    }
+}
+
+.the-players {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    column-gap: 30px;
+    font-size: 24px;
+
+    & strong {
+        position: relative;
+        font-size: 50px;
+        color: var(--mindaro);
+        cursor: pointer;
+        transition: var(--smooth1);
+
+        & small {
+            font-size: 10px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: var(--smooth1);
+        }
+    }
+    & strong:hover {
+        color: var(--white);
+
+        & small {
+            bottom: -10px;
+            opacity: 1;
+        }
+    }
+    & strong:active {
+        transform: scale(97%);
+    }
+
+    & div b {
+        font-size: 35px;
+    }
+    .x-player b {
+        margin-right: 5px;
+        color: var(--pigment-green);
+    }
+    .o-player b {
+        margin-left: 5px;
+        color: var(--brown);
+    }
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--black);
+        font-size: 70px;
+        border: 1px solid var(--mindaro);
+        cursor: pointer;
+    }
+    .cell:hover {
+        background-color: rgba(240, 240, 240, 0.1);
+    }
+
+    .player-x {
+        color: var(--pigment-green);
+    }
+    .player-o {
+        color: var(--brown);
+    }
+}
+
+.my-info {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    & i {
+        color: var(--brown);
+    }
+}
